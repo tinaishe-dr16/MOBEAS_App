@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'home.dart';
 import 'loginerr.dart';
+import 'signup.dart';
 
 class LoginErr2 extends StatefulWidget {
   @override
@@ -74,6 +75,17 @@ class _LoginErr2State extends State<LoginErr2> {
       ),
     );
 
+    final btnSignup = FlatButton(
+      onPressed: () => {
+        Navigator.pushReplacement(
+            context, MaterialPageRoute(builder: (context) => Signup()))
+      },
+      child: Text(
+        "Signup",
+        style: new TextStyle(color: Colors.blue),
+      ),
+    );
+
     return new Scaffold(
       appBar: new AppBar(
         title: new Text('MOBEAS Login'),
@@ -102,7 +114,13 @@ class _LoginErr2State extends State<LoginErr2> {
               height: 20.0,
             ),
             btnLogin,
-            btnForgotPassword
+            btnForgotPassword,
+            Center(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [Text('Don\'t have an account?'), btnSignup],
+              ),
+            ),
           ],
         ),
       ),

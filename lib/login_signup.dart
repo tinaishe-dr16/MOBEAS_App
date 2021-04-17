@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'home.dart';
 import 'loginerr.dart';
 import 'loginerr2.dart';
+import 'signup.dart';
 
 class LoginSignup extends StatefulWidget {
   @override
@@ -75,6 +76,17 @@ class _LoginSignupState extends State<LoginSignup> {
       ),
     );
 
+    final btnSignup = FlatButton(
+      onPressed: () => {
+        Navigator.pushReplacement(
+            context, MaterialPageRoute(builder: (context) => Signup()))
+      },
+      child: Text(
+        "Signup",
+        style: new TextStyle(color: Colors.blue),
+      ),
+    );
+
     return new Scaffold(
       appBar: new AppBar(
         title: new Text('MOBEAS Login'),
@@ -99,7 +111,13 @@ class _LoginSignupState extends State<LoginSignup> {
               height: 20.0,
             ),
             btnLogin,
-            btnForgotPassword
+            btnForgotPassword,
+            Center(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [Text('Don\'t have an account?'), btnSignup],
+              ),
+            ),
           ],
         ),
       ),
