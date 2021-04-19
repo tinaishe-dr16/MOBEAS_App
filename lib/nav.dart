@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'home.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'login_signup.dart';
 
 class NavDrawer extends StatelessWidget {
+ //final auth = Firebase.instance;
+
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -62,6 +65,7 @@ class NavDrawer extends StatelessWidget {
             leading: Icon(Icons.exit_to_app),
             title: Text('Logout'),
             onTap: () => {
+
               Navigator.pushReplacement(context,
                   MaterialPageRoute(builder: (context) => LoginSignup()))
             },

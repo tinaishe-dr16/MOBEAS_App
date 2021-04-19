@@ -1,7 +1,8 @@
+//import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'home.dart';
-import 'loginerr.dart';
-import 'loginerr2.dart';
+// import 'loginerr.dart';
+// import 'loginerr2.dart';
 import 'signup.dart';
 
 class LoginSignup extends StatefulWidget {
@@ -10,6 +11,9 @@ class LoginSignup extends StatefulWidget {
 }
 
 class _LoginSignupState extends State<LoginSignup> {
+  //String _email, _password;
+  //final auth = FirebaseAuth.instance;
+
   @override
   Widget build(BuildContext context) {
     final usernameController = TextEditingController();
@@ -26,9 +30,15 @@ class _LoginSignupState extends State<LoginSignup> {
 
     final textUsername = TextField(
       cursorColor: Colors.red,
+      keyboardType: TextInputType.emailAddress,
       controller: usernameController,
+     // onChanged: (value) {
+       // setState(() {
+    //      _email = value.trim();
+        //});
+     // },
       decoration: InputDecoration(
-        hintText: 'Username',
+        hintText: 'Email',
         contentPadding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(20),
@@ -40,6 +50,11 @@ class _LoginSignupState extends State<LoginSignup> {
       cursorColor: Colors.red,
       controller: passwordController,
       obscureText: true,
+     // onChanged: (value) {
+       // setState(() {
+      //    _password = value.trim();
+     //   });
+     // },
       decoration: InputDecoration(
         hintText: 'Password',
         contentPadding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
@@ -53,7 +68,11 @@ class _LoginSignupState extends State<LoginSignup> {
         child: Text('Login'),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
         onPressed: () {
-          if (usernameController != null &&
+        //  auth.signInWithEmailAndPassword(email: _email, password: _password).then((_){
+              Navigator.pushReplacement(
+              context, MaterialPageRoute(builder: (context) => Home()));
+         // });
+          /*if (usernameController != null &&
               usernameController.text == "tinaishe_dr" &&
               passwordController != null &&
               passwordController.text == "titi16071999") {
@@ -65,7 +84,7 @@ class _LoginSignupState extends State<LoginSignup> {
           } else {
             Navigator.pushReplacement(
                 context, MaterialPageRoute(builder: (context) => LoginErr()));
-          }
+          }*/
         });
 
     final btnForgotPassword = FlatButton(

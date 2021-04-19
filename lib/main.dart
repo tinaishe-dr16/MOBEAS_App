@@ -1,9 +1,18 @@
+//import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'login_signup.dart';
 
-void main() {
+/*Future<*/ void /*>*/ main() /*async*/ {
+  //print('init start');
+  //WidgetsFlutterBinding.ensureInitialized();
+  //await Firebase.initializeApp();
+  //print('init complete');
   runApp(MyApp());
+  //print('run finish');
 }
+
+DatabaseReference usersRef =
+    FirebaseDatabase.instance.reference().child("users");
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.

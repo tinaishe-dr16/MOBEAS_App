@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'home.dart';
-import 'loginerr.dart';
+// import 'home.dart';
+// import 'signup_successful.dart';
 import 'signup.dart';
 
 class LoginErr2 extends StatefulWidget {
@@ -52,7 +52,7 @@ class _LoginErr2State extends State<LoginErr2> {
         child: Text('Login'),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
         onPressed: () {
-          if (usernameController != null &&
+          /*if (usernameController != null &&
               usernameController.text == "tinaishe_dr" &&
               passwordController != null &&
               passwordController.text == "titi16071999") {
@@ -64,7 +64,7 @@ class _LoginErr2State extends State<LoginErr2> {
           } else {
             Navigator.pushReplacement(
                 context, MaterialPageRoute(builder: (context) => LoginErr()));
-          }
+          }*/
         });
 
     final btnForgotPassword = FlatButton(

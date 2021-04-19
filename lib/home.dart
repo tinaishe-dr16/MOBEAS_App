@@ -85,7 +85,7 @@ class MapTab extends StatelessWidget {
   Position currentPosition;
   var geoLocater = Geolocator();
 
-  /*void locatePosition() async {
+  void locatePosition() async {
     Position position = await Geolocator()
         .getCurrentPosition(desiredAccuracy: LocationAccuracy.high);
     currentPosition = position;
@@ -93,13 +93,13 @@ class MapTab extends StatelessWidget {
     CameraPosition cameraPosition =
         new CameraPosition(target: latLangPosition, zoom: 14);
     mapController.animateCamera(CameraUpdate.newCameraPosition(cameraPosition));
-  }*/
+  }
 
   final LatLng _center = const LatLng(-19.5177903, 29.8378325);
 
   void _onMapCreated(GoogleMapController controller) {
     mapController = controller;
-    //locatePosition();
+    locatePosition();
   }
 
   @override
@@ -108,6 +108,7 @@ class MapTab extends StatelessWidget {
       children: [
         GoogleMap(
           mapType: MapType.normal,
+          zoomGesturesEnabled: true,
           myLocationButtonEnabled: true,
           myLocationEnabled: true,
           mapToolbarEnabled: true,

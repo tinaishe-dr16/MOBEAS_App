@@ -1,14 +1,18 @@
 import 'package:flutter/material.dart';
+//import 'package:firebase_auth/firebase_auth.dart';
 import 'home.dart';
-import 'loginerr2.dart';
+// import 'loginerr2.dart';
 import 'signup.dart';
 
-class LoginErr extends StatefulWidget {
+class SignupSuccess extends StatefulWidget {
   @override
-  State<StatefulWidget> createState() => new _LoginErrState();
+  State<StatefulWidget> createState() => new _SignupSuccessState();
 }
 
-class _LoginErrState extends State<LoginErr> {
+class _SignupSuccessState extends State<SignupSuccess> {
+  //String _email, _password;
+  //final auth = FirebaseAuth.instance;
+
   @override
   Widget build(BuildContext context) {
     final usernameController = TextEditingController();
@@ -26,6 +30,11 @@ class _LoginErrState extends State<LoginErr> {
     final textUsername = TextField(
       cursorColor: Colors.red,
       controller: usernameController,
+    //  onChanged: (value) {
+     //   setState(() {
+    //      _email = value.trim();
+    //    });
+     // },
       decoration: InputDecoration(
         hintText: 'Username',
         contentPadding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
@@ -38,6 +47,11 @@ class _LoginErrState extends State<LoginErr> {
     final textPassword = TextField(
       cursorColor: Colors.red,
       controller: passwordController,
+     // onChanged: (value) {
+      //  setState(() {
+      //    _password = value.trim();
+      //  });
+     // },
       obscureText: true,
       decoration: InputDecoration(
         hintText: 'Password',
@@ -52,7 +66,11 @@ class _LoginErrState extends State<LoginErr> {
         child: Text('Login'),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
         onPressed: () {
-          if (usernameController != null &&
+        // /*auth.signInWithEmailAndPassword(email: _email, password: _password).then((_){*/
+              Navigator.pushReplacement(
+              context, MaterialPageRoute(builder: (context) => Home()));
+          //});
+          /*if (usernameController != null &&
               usernameController.text == "tinaishe_dr" &&
               passwordController != null &&
               passwordController.text == "titi16071999") {
@@ -64,7 +82,7 @@ class _LoginErrState extends State<LoginErr> {
           } else {
             Navigator.pushReplacement(
                 context, MaterialPageRoute(builder: (context) => LoginErr()));
-          }
+          }*/
         });
 
     final btnForgotPassword = FlatButton(
@@ -88,7 +106,7 @@ class _LoginErrState extends State<LoginErr> {
 
     return new Scaffold(
       appBar: new AppBar(
-        title: new Text('MOBEAS Login'),
+        title: new Text('Welcome to MOBEAS'),
         centerTitle: true,
         backgroundColor: Colors.red[700],
       ),
@@ -99,10 +117,10 @@ class _LoginErrState extends State<LoginErr> {
           children: [
             logo,
             SizedBox(
-             height: 40.0,
+              height: 40.0,
             ),
             Text(
-              'Invalid Login details! Try Again.\n',
+              'Account created successfully. Login to continue\n',
               style: new TextStyle(color: Colors.red),
             ),
             textUsername,
