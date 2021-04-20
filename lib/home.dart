@@ -91,7 +91,7 @@ class MapTab extends StatelessWidget {
     currentPosition = position;
     LatLng latLangPosition = LatLng(position.latitude, position.longitude);
     CameraPosition cameraPosition =
-        new CameraPosition(target: latLangPosition, zoom: 14);
+        new CameraPosition(target: latLangPosition, zoom: 18);
     mapController.animateCamera(CameraUpdate.newCameraPosition(cameraPosition));
   }
 

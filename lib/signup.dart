@@ -1,7 +1,9 @@
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/material.dart';
 //import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'login_signup.dart';
+import 'main.dart';
 import 'signup_successful.dart';
 
 class Signup extends StatefulWidget {
@@ -13,14 +15,15 @@ class _SignupState extends State<Signup> {
   String _email, _password, _username, _confirmpassword;
   final passwordController = TextEditingController();
   final emailController = TextEditingController();
+  final usernameController = TextEditingController();
+  final confirmPasswordController = TextEditingController();
 
   //final auth = FirebaseAuth.instance;
 
   @override
   Widget build(BuildContext context) {
-    final usernameController = TextEditingController();
     // final passwordController = TextEditingController();
-    final confirmPasswordController = TextEditingController();
+
     // final emailController = TextEditingController();
 
     final textUsername = TextField(
@@ -109,9 +112,9 @@ class _SignupState extends State<Signup> {
           registerNewUser(context);
         }
 
-        // auth.createUserWithEmailAndPassword(email: _email, password: _password);
-        // Navigator.pushReplacement(
-        //   context, MaterialPageRoute(builder: (context) => SignupSuccess()));
+        auth.createUserWithEmailAndPassword(email: _email, password: _password);
+        Navigator.pushReplacement(
+            context, MaterialPageRoute(builder: (context) => SignupSuccess()));
       },
     );
 
@@ -169,7 +172,7 @@ class _SignupState extends State<Signup> {
   final FirebaseAuth auth = FirebaseAuth.instance;
 
   void registerNewUser(BuildContext context) async {
-    final user = (await auth
+    final User user = (await auth
             .createUserWithEmailAndPassword(
                 email: emailController.text, password: passwordController.text)
             .catchError((errMsg) {
@@ -177,6 +180,13 @@ class _SignupState extends State<Signup> {
     }))
         .user;
     if (user != null) {
+      Map userDataMap = {
+        "email": emailController.text.trim(),
+        "username": usernameController.text.trim()
+      };
+      usersRef.child(user.uid).set(userDataMap);
+      Navigator.pushReplacement(
+          context, MaterialPageRoute(builder: (context) => SignupSuccess()));
     } else {
       displayToastMessage("New User has not been created", context);
     }

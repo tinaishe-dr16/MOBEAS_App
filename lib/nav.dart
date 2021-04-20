@@ -4,7 +4,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'login_signup.dart';
 
 class NavDrawer extends StatelessWidget {
- //final auth = Firebase.instance;
+  //final auth = Firebase.instance;
 
   @override
   Widget build(BuildContext context) {
@@ -65,11 +65,14 @@ class NavDrawer extends StatelessWidget {
             leading: Icon(Icons.exit_to_app),
             title: Text('Logout'),
             onTap: () => {
-
               Navigator.pushReplacement(context,
                   MaterialPageRoute(builder: (context) => LoginSignup()))
             },
           ),
+          SizedBox(
+            height: 90.0,
+          ),
+          Text("  Copyright © 2021 MOBEAS by Tinaishe Tapera"),
         ],
       ),
     );
