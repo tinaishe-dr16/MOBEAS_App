@@ -111,8 +111,7 @@ class _SignupState extends State<Signup> {
           displayToastMessage("Passwords do not match!", context);
         } else {
           registerNewUser(context);
-          displayToastMessage(
-              "Account created successfully, log in to continue", context);
+          
         }
       },
     );
@@ -196,6 +195,8 @@ class _SignupState extends State<Signup> {
       usersRef.child(user.uid).set(userDataMap);
       Navigator.pushReplacement(
           context, MaterialPageRoute(builder: (context) => LoginSignup()));
+      displayToastMessage(
+              "Account created successfully, log in to continue", context);
     } else {
       Navigator.pop(context);
       displayToastMessage("New User has not been created", context);
