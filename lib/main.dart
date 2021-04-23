@@ -1,15 +1,16 @@
-//import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'login_signup.dart';
 
-/*Future<*/ void /*>*/ main() /*async*/ {
-  //print('init start');
-  //WidgetsFlutterBinding.ensureInitialized();
-  //await Firebase.initializeApp();
-  //print('init complete');
+Future<void> main() async {
+  print('init start');
+  WidgetsFlutterBinding.ensureInitialized();
+  print('initialisation ensured');
+  await Firebase.initializeApp();
+  print('init complete');
   runApp(MyApp());
-  //print('run finish');
+  print('run finish');
 }
 
 DatabaseReference usersRef =

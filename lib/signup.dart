@@ -1,7 +1,8 @@
-//import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+// import 'package:firebase_auth/firebase_auth.dart';
+import 'AllWidgets/progressDialog.dart';
 import 'login_signup.dart';
 import 'main.dart';
 import 'signup_successful.dart';
@@ -18,7 +19,7 @@ class _SignupState extends State<Signup> {
   final usernameController = TextEditingController();
   final confirmPasswordController = TextEditingController();
 
-  //final auth = FirebaseAuth.instance;
+  final auth = FirebaseAuth.instance;
 
   @override
   Widget build(BuildContext context) {
@@ -29,11 +30,11 @@ class _SignupState extends State<Signup> {
     final textUsername = TextField(
       cursorColor: Colors.red,
       controller: usernameController,
-      //   onChanged: (value) {
-      //   setState(() {
-      //      _username = value.trim();
-      //    });
-      // },
+      onChanged: (value) {
+        setState(() {
+          _username = value.trim();
+        });
+      },
       decoration: InputDecoration(
         hintText: 'Enter Username',
         contentPadding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
@@ -47,11 +48,11 @@ class _SignupState extends State<Signup> {
       keyboardType: TextInputType.emailAddress,
       cursorColor: Colors.red,
       controller: emailController,
-      //  onChanged: (value) {
-      //  setState(() {
-      //    _email = value.trim();
-      //    });
-      //  },
+      onChanged: (value) {
+        setState(() {
+          _email = value.trim();
+        });
+      },
       decoration: InputDecoration(
         hintText: 'Enter an Email',
         contentPadding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
@@ -64,11 +65,11 @@ class _SignupState extends State<Signup> {
     final textPassword = TextField(
       cursorColor: Colors.red,
       controller: passwordController,
-      // onChanged: (value) {
-      //  setState(() {
-      //  _password = value.trim();
-      //    });
-      // },
+      onChanged: (value) {
+        setState(() {
+          _password = value.trim();
+        });
+      },
       obscureText: true,
       decoration: InputDecoration(
         hintText: 'Enter Password',
@@ -82,11 +83,11 @@ class _SignupState extends State<Signup> {
     final textConfirmPassword = TextField(
       cursorColor: Colors.red,
       controller: confirmPasswordController,
-      //   onChanged: (value) {
-      //    setState(() {
-      //_confirmpassword = value.trim();
-      //    });
-      //  },
+      onChanged: (value) {
+        setState(() {
+          _confirmpassword = value.trim();
+        });
+      },
       obscureText: true,
       decoration: InputDecoration(
         hintText: 'Re-enter Password',
@@ -110,11 +111,9 @@ class _SignupState extends State<Signup> {
           displayToastMessage("Passwords do not match!", context);
         } else {
           registerNewUser(context);
+          displayToastMessage(
+              "Account created successfully, log in to continue", context);
         }
-
-        auth.createUserWithEmailAndPassword(email: _email, password: _password);
-        Navigator.pushReplacement(
-            context, MaterialPageRoute(builder: (context) => SignupSuccess()));
       },
     );
 
@@ -169,13 +168,23 @@ class _SignupState extends State<Signup> {
     );
   }
 
-  final FirebaseAuth auth = FirebaseAuth.instance;
+  // final FirebaseAuth auth = FirebaseAuth.instance;
 
   void registerNewUser(BuildContext context) async {
+    showDialog(
+        context: context,
+        barrierDismissible: false,
+        builder: (BuildContext context) {
+          return ProgressDialog(
+            message: "Registering new user, please wait...",
+          );
+        });
+
     final User user = (await auth
             .createUserWithEmailAndPassword(
                 email: emailController.text, password: passwordController.text)
             .catchError((errMsg) {
+      Navigator.pop(context);
       displayToastMessage("Error: " + errMsg.toString(), context);
     }))
         .user;
@@ -186,8 +195,9 @@ class _SignupState extends State<Signup> {
       };
       usersRef.child(user.uid).set(userDataMap);
       Navigator.pushReplacement(
-          context, MaterialPageRoute(builder: (context) => SignupSuccess()));
+          context, MaterialPageRoute(builder: (context) => LoginSignup()));
     } else {
+      Navigator.pop(context);
       displayToastMessage("New User has not been created", context);
     }
   }

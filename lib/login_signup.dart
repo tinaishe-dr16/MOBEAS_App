@@ -1,8 +1,11 @@
-//import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
+import 'AllWidgets/progressDialog.dart';
 import 'home.dart';
 // import 'loginerr.dart';
 // import 'loginerr2.dart';
+import 'main.dart';
 import 'signup.dart';
 
 class LoginSignup extends StatefulWidget {
@@ -11,14 +14,53 @@ class LoginSignup extends StatefulWidget {
 }
 
 class _LoginSignupState extends State<LoginSignup> {
-  //String _email, _password;
-  //final auth = FirebaseAuth.instance;
+  String _email, _password;
+  final auth = FirebaseAuth.instance;
+  final emailController = TextEditingController();
+  final passwordController = TextEditingController();
+
+  void loginUser(BuildContext context) async {
+    showDialog(
+        context: context,
+        barrierDismissible: false,
+        builder: (BuildContext context) {
+          return ProgressDialog(
+            message: "Authenticating, please wait...",
+          );
+        });
+
+    final User user = (await auth
+            .signInWithEmailAndPassword(
+                email: emailController.text, password: passwordController.text)
+            .catchError((errMsg) {
+      Navigator.pop(context);
+      displayToastMessage("Error: " + errMsg.toString(), context);
+    }))
+        .user;
+
+    if (user != null) {
+    	displayToastMessage(
+              "Authenticated successfully", context);
+      usersRef.child(user.uid).once().then((DataSnapshot snap) {
+        if (snap.value != null) {
+          Navigator.pushReplacement(
+              context, MaterialPageRoute(builder: (context) => Home()));
+        } else {
+          Navigator.pop(context);
+          auth.signOut();
+          displayToastMessage(
+              "User does not exist! Please create an account", context);
+        }
+      });
+    } else {
+      Navigator.pop(context);
+      displayToastMessage(
+          "Error occured! Cannot Login, try again later", context);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
-    final usernameController = TextEditingController();
-    final passwordController = TextEditingController();
-
     final logo = Hero(
       tag: 'logo',
       child: CircleAvatar(
@@ -28,15 +70,15 @@ class _LoginSignupState extends State<LoginSignup> {
       ),
     );
 
-    final textUsername = TextField(
+    final textEmail = TextField(
       cursorColor: Colors.red,
       keyboardType: TextInputType.emailAddress,
-      controller: usernameController,
-     // onChanged: (value) {
-       // setState(() {
-    //      _email = value.trim();
-        //});
-     // },
+      controller: emailController,
+      onChanged: (value) {
+        setState(() {
+          _email = value.trim();
+        });
+      },
       decoration: InputDecoration(
         hintText: 'Email',
         contentPadding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
@@ -50,11 +92,11 @@ class _LoginSignupState extends State<LoginSignup> {
       cursorColor: Colors.red,
       controller: passwordController,
       obscureText: true,
-     // onChanged: (value) {
-       // setState(() {
-      //    _password = value.trim();
-     //   });
-     // },
+      onChanged: (value) {
+        setState(() {
+          _password = value.trim();
+        });
+      },
       decoration: InputDecoration(
         hintText: 'Password',
         contentPadding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
@@ -68,10 +110,20 @@ class _LoginSignupState extends State<LoginSignup> {
         child: Text('Login'),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
         onPressed: () {
-        //  auth.signInWithEmailAndPassword(email: _email, password: _password).then((_){
-              Navigator.pushReplacement(
-              context, MaterialPageRoute(builder: (context) => Home()));
-         // });
+          if (!emailController.text.contains("@")) {
+            displayToastMessage("Email address not valid", context);
+          } else if (passwordController.text.isEmpty) {
+            displayToastMessage("Password is required!", context);
+          } else {
+            loginUser(context);
+          }
+
+          // auth
+          //     .signInWithEmailAndPassword(email: _email, password: _password)
+          //     .then((_) {
+          //   Navigator.pushReplacement(
+          //       context, MaterialPageRoute(builder: (context) => Home()));
+          // });
           /*if (usernameController != null &&
               usernameController.text == "tinaishe_dr" &&
               passwordController != null &&
@@ -121,7 +173,7 @@ class _LoginSignupState extends State<LoginSignup> {
             SizedBox(
               height: 40.0,
             ),
-            textUsername,
+            textEmail,
             SizedBox(
               height: 8.0,
             ),
