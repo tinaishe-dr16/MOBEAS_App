@@ -78,7 +78,7 @@ class Attended extends StatelessWidget {
                 ],
               ),
               child: ListTile(
-                title: Text('3. 1470 KMP Emergency (Attended)'),
+                title: Text('3. 321 CABS near Telone Campus(Attended)'),
                 hoverColor: Colors.grey,
                 onTap: () => Navigator.push(context,
                     MaterialPageRoute(builder: (context) => Request6())),
@@ -100,7 +100,7 @@ class Attended extends StatelessWidget {
                 ],
               ),
               child: ListTile(
-                title: Text('4. 1470 KMP Emergency (Attended)'),
+                title: Text('4. 4660 KMP Senga (Attended)'),
                 hoverColor: Colors.grey,
                 onTap: () => Navigator.push(context,
                     MaterialPageRoute(builder: (context) => Request7())),
@@ -122,7 +122,7 @@ class Attended extends StatelessWidget {
                 ],
               ),
               child: ListTile(
-                title: Text('5. 1470 KMP Emergency (Attended)'),
+                title: Text('5. Japan Hostel W (Attended)'),
                 hoverColor: Colors.grey,
                 onTap: () => Navigator.push(context,
                     MaterialPageRoute(builder: (context) => Request8())),
@@ -144,7 +144,7 @@ class Attended extends StatelessWidget {
                 ],
               ),
               child: ListTile(
-                title: Text('6. 1470 KMP Emergency (Attended)'),
+                title: Text('6. 4255 Senga Nehosho (Attended)'),
                 hoverColor: Colors.grey,
                 onTap: () => Navigator.push(context,
                     MaterialPageRoute(builder: (context) => Request9())),
@@ -166,7 +166,7 @@ class Attended extends StatelessWidget {
                 ],
               ),
               child: ListTile(
-                title: Text('7. 1470 KMP Emergency (Attended)'),
+                title: Text('7. Fletcher High School Staff Cottage (Attended)'),
                 hoverColor: Colors.grey,
                 onTap: () => Navigator.push(context,
                     MaterialPageRoute(builder: (context) => Request10())),

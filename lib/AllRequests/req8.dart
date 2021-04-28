@@ -21,7 +21,7 @@ class Request8 extends StatelessWidget {
                   height: 40.0,
                 ),
                 Text(
-                  'Location : 1470 KMP Senga Ext.\n\nStatus: Active\n\nAttendence: Driver (ID: A2P5JDK9) Attending\n\nDate Requested: 29 April 2021\n\nTime: 12.56hrs (GMT 2+)',
+                  'Location : Japan Hostel W\n\nStatus: InActive\n\nAttendence: Driver (ID: A1P1JDK8) Attended\n\nDate Requested: 24 April 2021\n\nTime: 07.56hrs (GMT 2+)',
                   style: TextStyle(fontSize: 17),
                 ),
                 SizedBox(
@@ -30,8 +30,7 @@ class Request8 extends StatelessWidget {
                 RaisedButton(
                     child: Text('Attend Request'),
                     onPressed: () {
-                      displayToastMessage(
-                          "A2P5JDK9 is already attending", context);
+                      displayToastMessage("Request expired", context);
                     }),
               ],
             ),
