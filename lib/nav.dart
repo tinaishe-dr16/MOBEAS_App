@@ -1,6 +1,8 @@
+import 'package:MOBEAS/destinations.dart';
 import 'package:flutter/material.dart';
+import 'settings.dart';
 import 'home.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+// import 'package:firebase_auth/firebase_auth.dart';
 import 'login_signup.dart';
 
 class NavDrawer extends StatelessWidget {
@@ -52,13 +54,11 @@ class NavDrawer extends StatelessWidget {
           ),
           ListTile(
             leading: Icon(Icons.accessibility),
-            title: Text('First Aid'),
+            title: Text('MapView'),
             onTap: () => {
               /*Navigator.of(context).pop(FirstAid())*/ Navigator
-                  .pushReplacement(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => Home(pageNumber: 1)))
+                  .push(context,
+                      MaterialPageRoute(builder: (context) => MapView()))
             },
           ),
           ListTile(

@@ -13,10 +13,10 @@ class Signup extends StatefulWidget {
 }
 
 class _SignupState extends State<Signup> {
-  String _email, _password, _username, _confirmpassword;
+  String _email, _password, _fullname, _confirmpassword;
   final passwordController = TextEditingController();
   final emailController = TextEditingController();
-  final usernameController = TextEditingController();
+  final fullnameController = TextEditingController();
   final confirmPasswordController = TextEditingController();
 
   final auth = FirebaseAuth.instance;
@@ -27,16 +27,16 @@ class _SignupState extends State<Signup> {
 
     // final emailController = TextEditingController();
 
-    final textUsername = TextField(
+    final textFullname = TextField(
       cursorColor: Colors.red,
-      controller: usernameController,
+      controller: fullnameController,
       onChanged: (value) {
         setState(() {
-          _username = value.trim();
+          _fullname = value.trim();
         });
       },
       decoration: InputDecoration(
-        hintText: 'Enter Username',
+        hintText: 'Enter Full Name',
         contentPadding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(20),
@@ -138,7 +138,7 @@ class _SignupState extends State<Signup> {
           shrinkWrap: true,
           padding: EdgeInsets.only(left: 25, right: 25),
           children: [
-            textUsername,
+            textFullname,
             SizedBox(
               height: 20.0,
             ),
@@ -190,7 +190,7 @@ class _SignupState extends State<Signup> {
     if (user != null) {
       Map userDataMap = {
         "email": emailController.text.trim(),
-        "username": usernameController.text.trim()
+        "fullname": fullnameController.text.trim()
       };
       usersRef.child(user.uid).set(userDataMap);
       Navigator.pushReplacement(

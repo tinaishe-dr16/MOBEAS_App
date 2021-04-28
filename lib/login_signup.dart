@@ -39,12 +39,11 @@ class _LoginSignupState extends State<LoginSignup> {
         .user;
 
     if (user != null) {
-    	displayToastMessage(
-              "Authenticated successfully", context);
       usersRef.child(user.uid).once().then((DataSnapshot snap) {
         if (snap.value != null) {
           Navigator.pushReplacement(
               context, MaterialPageRoute(builder: (context) => Home()));
+          displayToastMessage("Authenticated successfully", context);
         } else {
           Navigator.pop(context);
           auth.signOut();
@@ -160,7 +159,7 @@ class _LoginSignupState extends State<LoginSignup> {
 
     return new Scaffold(
       appBar: new AppBar(
-        title: new Text('MOBEAS Login'),
+        title: new Text('MOBEAS Driver Login'),
         centerTitle: true,
         backgroundColor: Colors.red[700],
       ),
@@ -186,7 +185,7 @@ class _LoginSignupState extends State<LoginSignup> {
             Center(
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: [Text('Don\'t have an account?'), btnSignup],
+                children: [Text('Don\'t have a Driver\'s account?'), btnSignup],
               ),
             ),
           ],
