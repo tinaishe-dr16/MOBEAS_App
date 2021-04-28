@@ -447,7 +447,7 @@ class _MapViewState extends State<MapView> {
                               }),
                           SizedBox(height: 10),
                           _textField(
-                              label: 'Destination',
+                              label: '961 Boarding House',
                               hint: 'Choose destination',
                               prefixIcon: Icon(Icons.looks_two),
                               controller: destinationAddressController,
@@ -484,13 +484,6 @@ class _MapViewState extends State<MapView> {
                               const url =
                                   'https://www.google.com/maps/dir/?api=1&origin=-19.5171721,29.8389681&destination=-19.497975,29.848276&travelmode=driving&dir_action=navigate';
                               _launchURL(url);
-
-                              int buildRequests() {
-                                requests = (requests += 1);
-                                return requests;
-                              }
-
-                              ;
                             },
                             // onPressed: (_startAddress != '' &&
                             //         _destinationAddress != '')

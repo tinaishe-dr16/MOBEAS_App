@@ -44,7 +44,6 @@ class _Profile extends State<Profile> {
             child: Text('MOBEAS Driver ID: A1P1JDK8'),
           ),
         ),
-        Text('Number of Attended requests: ')
       ],
     );
   }

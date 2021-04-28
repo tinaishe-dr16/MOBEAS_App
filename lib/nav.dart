@@ -41,24 +41,23 @@ class NavDrawer extends StatelessWidget {
                           builder: (context) => Home(pageNumber: 2)))
             },
           ),
-          ListTile(
-            leading: Icon(Icons.settings),
-            title: Text('Settings'),
-            onTap: () => {
-              /*Navigator.of(context).pop(Settings())*/ Navigator
-                  .pushReplacement(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => Home(pageNumber: 3)))
-            },
-          ),
+          // ListTile(
+          //   leading: Icon(Icons.settings),
+          //   title: Text('Settings'),
+          //   onTap: () => {
+          //     /*Navigator.of(context).pop(Settings())*/ Navigator
+          //         .pushReplacement(
+          //             context,
+          //             MaterialPageRoute(
+          //                 builder: (context) => Home(pageNumber: 3)))
+          //   },
+          // ),
           ListTile(
             leading: Icon(Icons.accessibility),
-            title: Text('MapView'),
+            title: Text('Attend A Request'),
             onTap: () => {
-              /*Navigator.of(context).pop(FirstAid())*/ Navigator
-                  .push(context,
-                      MaterialPageRoute(builder: (context) => MapView()))
+              /*Navigator.of(context).pop(FirstAid())*/ Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => MapView()))
             },
           ),
           ListTile(
@@ -70,7 +69,7 @@ class NavDrawer extends StatelessWidget {
             },
           ),
           SizedBox(
-            height: 90.0,
+            height: 140.0,
           ),
           Text("  Copyright © 2021 MOBEAS by Tinaishe Tapera"),
         ],

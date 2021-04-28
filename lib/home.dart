@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'geolocator_service.dart';
 import 'nav.dart';
-import 'firstaid.dart';
+import 'requests.dart';
 import 'profile.dart';
 import 'settings.dart' as settings;
 import 'package:geolocator/geolocator.dart';
@@ -40,9 +40,9 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     var tabs = [
       MapTab(),
-      FirstAid(),
+      Requests(),
       Profile(),
-      settings.Settings(),
+      //settings.Settings(),
     ];
 
     return Scaffold(
@@ -76,11 +76,11 @@ class _HomeState extends State<Home> {
             title: Text('Profile'),
             backgroundColor: Colors.red,
           ),
-          const BottomNavigationBarItem(
-            icon: Icon(Icons.settings),
-            title: Text('Settings'),
-            backgroundColor: Colors.red,
-          )
+          // const BottomNavigationBarItem(
+          //   icon: Icon(Icons.settings),
+          //  title: Text('Settings'),
+          //   backgroundColor: Colors.red,
+          // )
         ],
       ),
     );
