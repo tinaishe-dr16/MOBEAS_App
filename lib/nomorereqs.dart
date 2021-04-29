@@ -63,7 +63,7 @@ class NoMoreReqs extends StatelessWidget {
             ),
             Container(
               decoration: BoxDecoration(
-                color: Colors.white,
+                color: Colors.green,
                 borderRadius: BorderRadius.circular(6),
                 boxShadow: [
                   BoxShadow(
@@ -85,7 +85,7 @@ class NoMoreReqs extends StatelessWidget {
             ),
             Container(
               decoration: BoxDecoration(
-                color: Colors.white,
+                color: Colors.green,
                 borderRadius: BorderRadius.circular(6),
                 boxShadow: [
                   BoxShadow(

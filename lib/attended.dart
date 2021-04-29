@@ -18,164 +18,168 @@ class Attended extends StatelessWidget {
         title: Text('Attended Requests'),
         backgroundColor: Colors.red[700],
       ),
-      body: Container(
-        child: ListView(
-          children: [
-            Container(
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(6),
-                boxShadow: [
-                  BoxShadow(
-                      color: Colors.grey[300],
-                      blurRadius: 3,
-                      spreadRadius: 2,
-                      offset: Offset(0, 2))
-                ],
+      body: Padding(
+        padding: const EdgeInsets.all(12.0),
+        child: Container(
+          child: ListView(
+            children: [
+              Container(
+                decoration: BoxDecoration(
+                  color: Colors.blue,
+                  borderRadius: BorderRadius.circular(6),
+                  boxShadow: [
+                    BoxShadow(
+                        color: Colors.grey[300],
+                        blurRadius: 3,
+                        spreadRadius: 2,
+                        offset: Offset(0, 2))
+                  ],
+                ),
+                child: ListTile(
+                  title: Text('1. 124 Senga Nehosho (Attended)'),
+                  hoverColor: Colors.grey,
+                  onTap: () => Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => Request4())),
+                ),
               ),
-              child: ListTile(
-                title: Text('1. 124 Senga Nehosho (Attended)'),
-                hoverColor: Colors.grey,
-                onTap: () => Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => Request4())),
+              SizedBox(
+                height: 10.0,
               ),
-            ),
-            SizedBox(
-              height: 10.0,
-            ),
-            Container(
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(6),
-                boxShadow: [
-                  BoxShadow(
-                      color: Colors.grey[300],
-                      blurRadius: 3,
-                      spreadRadius: 2,
-                      offset: Offset(0, 2))
-                ],
+              Container(
+                decoration: BoxDecoration(
+                  color: Colors.blue,
+                  borderRadius: BorderRadius.circular(6),
+                  boxShadow: [
+                    BoxShadow(
+                        color: Colors.grey[300],
+                        blurRadius: 3,
+                        spreadRadius: 2,
+                        offset: Offset(0, 2))
+                  ],
+                ),
+                child: ListTile(
+                  title: Text('2. China Hostel F (Attended)'),
+                  hoverColor: Colors.grey,
+                  onTap: () => Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => Request5())),
+                ),
               ),
-              child: ListTile(
-                title: Text('2. China Hostel F (Attended)'),
-                hoverColor: Colors.grey,
-                onTap: () => Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => Request5())),
+              SizedBox(
+                height: 10.0,
               ),
-            ),
-            SizedBox(
-              height: 10.0,
-            ),
-            Container(
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(6),
-                boxShadow: [
-                  BoxShadow(
-                      color: Colors.grey[300],
-                      blurRadius: 3,
-                      spreadRadius: 2,
-                      offset: Offset(0, 2))
-                ],
+              Container(
+                decoration: BoxDecoration(
+                  color: Colors.blue,
+                  borderRadius: BorderRadius.circular(6),
+                  boxShadow: [
+                    BoxShadow(
+                        color: Colors.grey[300],
+                        blurRadius: 3,
+                        spreadRadius: 2,
+                        offset: Offset(0, 2))
+                  ],
+                ),
+                child: ListTile(
+                  title: Text('3. 321 CABS near Telone Campus(Attended)'),
+                  hoverColor: Colors.grey,
+                  onTap: () => Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => Request6())),
+                ),
               ),
-              child: ListTile(
-                title: Text('3. 321 CABS near Telone Campus(Attended)'),
-                hoverColor: Colors.grey,
-                onTap: () => Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => Request6())),
+              SizedBox(
+                height: 10.0,
               ),
-            ),
-            SizedBox(
-              height: 10.0,
-            ),
-            Container(
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(6),
-                boxShadow: [
-                  BoxShadow(
-                      color: Colors.grey[300],
-                      blurRadius: 3,
-                      spreadRadius: 2,
-                      offset: Offset(0, 2))
-                ],
+              Container(
+                decoration: BoxDecoration(
+                  color: Colors.blue,
+                  borderRadius: BorderRadius.circular(6),
+                  boxShadow: [
+                    BoxShadow(
+                        color: Colors.grey[300],
+                        blurRadius: 3,
+                        spreadRadius: 2,
+                        offset: Offset(0, 2))
+                  ],
+                ),
+                child: ListTile(
+                  title: Text('4. 4660 KMP Senga (Attended)'),
+                  hoverColor: Colors.grey,
+                  onTap: () => Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => Request7())),
+                ),
               ),
-              child: ListTile(
-                title: Text('4. 4660 KMP Senga (Attended)'),
-                hoverColor: Colors.grey,
-                onTap: () => Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => Request7())),
+              SizedBox(
+                height: 10.0,
               ),
-            ),
-            SizedBox(
-              height: 10.0,
-            ),
-            Container(
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(6),
-                boxShadow: [
-                  BoxShadow(
-                      color: Colors.grey[300],
-                      blurRadius: 3,
-                      spreadRadius: 2,
-                      offset: Offset(0, 2))
-                ],
+              Container(
+                decoration: BoxDecoration(
+                  color: Colors.blue,
+                  borderRadius: BorderRadius.circular(6),
+                  boxShadow: [
+                    BoxShadow(
+                        color: Colors.grey[300],
+                        blurRadius: 3,
+                        spreadRadius: 2,
+                        offset: Offset(0, 2))
+                  ],
+                ),
+                child: ListTile(
+                  title: Text('5. Japan Hostel W (Attended)'),
+                  hoverColor: Colors.grey,
+                  onTap: () => Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => Request8())),
+                ),
               ),
-              child: ListTile(
-                title: Text('5. Japan Hostel W (Attended)'),
-                hoverColor: Colors.grey,
-                onTap: () => Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => Request8())),
+              SizedBox(
+                height: 10.0,
               ),
-            ),
-            SizedBox(
-              height: 10.0,
-            ),
-            Container(
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(6),
-                boxShadow: [
-                  BoxShadow(
-                      color: Colors.grey[300],
-                      blurRadius: 3,
-                      spreadRadius: 2,
-                      offset: Offset(0, 2))
-                ],
+              Container(
+                decoration: BoxDecoration(
+                  color: Colors.blue,
+                  borderRadius: BorderRadius.circular(6),
+                  boxShadow: [
+                    BoxShadow(
+                        color: Colors.grey[300],
+                        blurRadius: 3,
+                        spreadRadius: 2,
+                        offset: Offset(0, 2))
+                  ],
+                ),
+                child: ListTile(
+                  title: Text('6. 4255 Senga Nehosho (Attended)'),
+                  hoverColor: Colors.grey,
+                  onTap: () => Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => Request9())),
+                ),
               ),
-              child: ListTile(
-                title: Text('6. 4255 Senga Nehosho (Attended)'),
-                hoverColor: Colors.grey,
-                onTap: () => Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => Request9())),
+              SizedBox(
+                height: 10.0,
               ),
-            ),
-            SizedBox(
-              height: 10.0,
-            ),
-            Container(
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(6),
-                boxShadow: [
-                  BoxShadow(
-                      color: Colors.grey[300],
-                      blurRadius: 3,
-                      spreadRadius: 2,
-                      offset: Offset(0, 2))
-                ],
+              Container(
+                decoration: BoxDecoration(
+                  color: Colors.blue,
+                  borderRadius: BorderRadius.circular(6),
+                  boxShadow: [
+                    BoxShadow(
+                        color: Colors.grey[300],
+                        blurRadius: 3,
+                        spreadRadius: 2,
+                        offset: Offset(0, 2))
+                  ],
+                ),
+                child: ListTile(
+                  title:
+                      Text('7. Fletcher High School Staff Cottage (Attended)'),
+                  hoverColor: Colors.grey,
+                  onTap: () => Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => Request10())),
+                ),
               ),
-              child: ListTile(
-                title: Text('7. Fletcher High School Staff Cottage (Attended)'),
-                hoverColor: Colors.grey,
-                onTap: () => Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => Request10())),
+              SizedBox(
+                height: 10.0,
               ),
-            ),
-            SizedBox(
-              height: 10.0,
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

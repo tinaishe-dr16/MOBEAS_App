@@ -31,7 +31,7 @@ class _Requests extends State<Requests> {
             ),
             Container(
               decoration: BoxDecoration(
-                color: Colors.white,
+                color: Colors.green,
                 borderRadius: BorderRadius.circular(6),
                 boxShadow: [
                   BoxShadow(
@@ -53,7 +53,7 @@ class _Requests extends State<Requests> {
             ),
             Container(
               decoration: BoxDecoration(
-                color: Colors.white,
+                color: Colors.green,
                 borderRadius: BorderRadius.circular(6),
                 boxShadow: [
                   BoxShadow(
@@ -118,7 +118,7 @@ class _Requests extends State<Requests> {
             ),
             Container(
               decoration: BoxDecoration(
-                color: Colors.white,
+                color: Colors.blue,
                 borderRadius: BorderRadius.circular(6),
                 boxShadow: [
                   BoxShadow(
@@ -140,7 +140,7 @@ class _Requests extends State<Requests> {
             ),
             Container(
               decoration: BoxDecoration(
-                color: Colors.white,
+                color: Colors.blue,
                 borderRadius: BorderRadius.circular(6),
                 boxShadow: [
                   BoxShadow(
@@ -162,7 +162,7 @@ class _Requests extends State<Requests> {
             ),
             Container(
               decoration: BoxDecoration(
-                color: Colors.white,
+                color: Colors.blue,
                 borderRadius: BorderRadius.circular(6),
                 boxShadow: [
                   BoxShadow(
