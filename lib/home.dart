@@ -24,6 +24,7 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   int _selectedTab;
+  int notificationBadge = 1;
 
   @override
   void initState() {
@@ -58,6 +59,11 @@ class _HomeState extends State<Home> {
           setState(() {
             _selectedTab = index;
           });
+          if (index == 1) {
+            setState(() {
+              notificationBadge = 0;
+            });
+          }
         },
         currentIndex: _selectedTab,
         items: [
@@ -66,8 +72,35 @@ class _HomeState extends State<Home> {
             title: Text('Home'),
             backgroundColor: Colors.red,
           ),
-          const BottomNavigationBarItem(
-            icon: Icon(Icons.accessibility),
+          BottomNavigationBarItem(
+            icon: Stack(
+              children: [
+                Icon(Icons.accessibility),
+                notificationBadge == 1
+                    ? Positioned(
+                        right: 0,
+                        top: 0,
+                        child: Container(
+                          padding: EdgeInsets.all(1),
+                          decoration: BoxDecoration(
+                            color: Colors.red,
+                            borderRadius: BorderRadius.circular(6),
+                          ),
+                          constraints:
+                              BoxConstraints(minWidth: 12, minHeight: 12),
+                          child: Text(
+                            '$notificationBadge',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 8,
+                            ),
+                            textAlign: TextAlign.center,
+                          ),
+                        ),
+                      )
+                    : SizedBox.shrink(),
+              ],
+            ),
             title: Text('Requests'),
             backgroundColor: Colors.red,
           ),

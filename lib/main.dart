@@ -5,13 +5,9 @@ import 'login_signup.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 Future<void> main() async {
-  print('init start');
   WidgetsFlutterBinding.ensureInitialized();
-  print('initialisation ensured');
   await Firebase.initializeApp();
-  print('init complete');
   runApp(MyApp());
-  print('run finish');
 }
 
 DatabaseReference usersRef =
